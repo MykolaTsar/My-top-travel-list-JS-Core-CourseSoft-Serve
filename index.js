@@ -6,11 +6,6 @@ const addButtonModal = canselButtonModal.nextElementSibling;
 const inputs = addTravelModal.querySelectorAll('input'); 
 const centralFirstTextBlock = document.querySelector('#entry-text');
 const deleteModalWindow = document.querySelector('#delete-modal');
-// const deletingModalWindowCancelButton = deleteModalWindow.querySelector('.btn--passive');
-// const deletingModalWindowConfirmButton = deletingModalWindowCancelButton.nextElementSibling;
-
-
-
 
 const travels = [];
 
@@ -55,13 +50,11 @@ const confirmDeleteModalWindowButton = bindedTravelId => {
   let deletingModalWindowConfirmButton = deleteModalWindow.querySelector('.btn--danger');
 
   deletingModalWindowConfirmButton.replaceWith(deletingModalWindowConfirmButton.cloneNode(true));
-
   deletingModalWindowConfirmButton = deleteModalWindow.querySelector('.btn--danger');
   
 
 
   deletingModalWindowCancelButton.removeEventListener('click', closeDeletionTravelModal);
-
   deletingModalWindowCancelButton.addEventListener('click', closeDeletionTravelModal);
   deletingModalWindowConfirmButton.addEventListener('click', deleteTravel.bind(null, bindedTravelId));
 }
@@ -84,8 +77,6 @@ const createNewTravelElement = (id, title, imageUrl, rating, date) => {
   </div>
   `;
   newTravelElement.addEventListener('click', confirmDeleteModalWindowButton.bind(null, id));
-
-
 
   const listUl = document.querySelector('#travel-list');
   listUl.appendChild(newTravelElement);
@@ -125,8 +116,8 @@ const addTravel = () => {
     ratingValue.trim() === '' ||
     +ratingValue < 1 ||
     +ratingValue > 10 ||
-    isNaN(Date.parse(dateValue))
-    // || !/^\d{4}-\d{2}-\d{2}$/.test(dateValue)//можна використати RegularExp
+    isNaN(Date.parse(dateValue)) ||
+    !/^\d{2}-\d{2}-\d{4}$/.test(dateValue)//можна використати RegularExp
     ) {
       alert('You schould enter correct data!');
       return;
