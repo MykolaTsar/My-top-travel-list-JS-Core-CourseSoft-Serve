@@ -82,6 +82,7 @@ const createNewTravelElement = (id, title, imageUrl, rating, date) => {
   const listUl = document.querySelector('#travel-list');
   listUl.appendChild(newTravelElement);
 };
+
 //скасувати видалення елементу подорожі
 const closeModalWindow = () => {
   addTravelModal.classList.remove('visible');
@@ -98,6 +99,7 @@ const clearTravelInputs = () => {
     userInput.value = '';
   };
 };
+
 //скасування видалення модального вікна заповнення форми
 closeModalWindow();
 const cancelTravelModal = () => {
