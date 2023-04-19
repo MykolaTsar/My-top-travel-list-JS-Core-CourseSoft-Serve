@@ -87,8 +87,8 @@ const closeModalWindow = () => {
   addTravelModal.classList.remove('visible');
 };
 
+//додати модальне вікно внесення подорожі
 const showTravelModal = () => {
-  //додати модальне вікно внесення подорожі
   addTravelModal.classList.add('visible');
   toggleBackdropElement();
 };
